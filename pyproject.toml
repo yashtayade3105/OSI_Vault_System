@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osivault"
+version = "0.1.0"
+description = "One Smarter's shared security core: encryption at rest, tamper-evident audit logs, crypto signing, tokens, and MFA adapters."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [
+    { name = "One Smarter Inc. Engineering", email = "security@onesmarter.com" }
+]
+keywords = [
+    "django",
+    "security",
+    "audit-log",
+    "encryption",
+    "hmac",
+    "crypto-agility",
+    "post-quantum",
+    "hipaa",
+    "tamper-evident"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = [
+    "django>=4.2",
+    "cryptography>=42.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-django>=4.8.0",
+    "pytest-cov>=4.1.0",
+    "psycopg2-binary>=2.9.0",
+    "build>=1.0.0",
+    "twine>=5.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/OneSmarterInc/OSIVault"
+Documentation = "https://github.com/OneSmarterInc/OSIVault#readme"
+Repository = "https://github.com/OneSmarterInc/OSIVault.git"
+Issues = "https://github.com/OneSmarterInc/OSIVault/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["osivault*"]
+
+[tool.pytest.ini_options]
+django_settings_module = "tests.settings"
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
