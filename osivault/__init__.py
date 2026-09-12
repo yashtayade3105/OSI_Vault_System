@@ -5,5 +5,5 @@ Provides field-level encryption, tamper-evident audit logs, self-describing digi
 token issuance, multi-factor authentication adapters, and compliance watch reporting.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __author__ = "One Smarter Inc. Engineering"

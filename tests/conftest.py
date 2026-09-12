@@ -37,9 +37,13 @@ def setup_audit_keys(monkeypatch):
 @pytest.fixture(autouse=True)
 def flush_test_db():
     """
-    Flush test database between individual test runs using raw SQL (bypassing ORM immutability guards).
+    Flush test database between individual test runs using raw SQL.
     """
     yield
     with connection.cursor() as cursor:
         cursor.execute("DELETE FROM test_concrete_audit_log;")
         cursor.execute("DELETE FROM osivault_audit_checkpoint;")
+        try:
+            cursor.execute("DELETE FROM test_patient_record;")
+        except Exception:
+            pass
